@@ -1,0 +1,853 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+}
+
+body {
+  cursor: none;
+}
+
+body > div {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+/*<------------------Landing page----------------> */
+.landing-page {
+  width: 100%;
+  height: 100vh;
+  background-size: contain;
+  position: relative;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background: url("https://image.freepik.com/free-vector/white-abstract-background-design_23-2148825582.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: scale(2, 2);
+  transform: scale(2, 2);
+  -webkit-animation: scale-image 0.8s ease-in-out 5.5s forwards;
+  animation: scale-image 0.8s ease-in-out 5.5s forwards;
+  z-index: -2;
+}
+
+.landing-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: #151515;
+  -webkit-animation: slide-in 1.5s ease-in-out 6s forwards;
+  animation: slide-in 1.5s ease-in-out 6s forwards;
+  z-index: -1;
+}
+
+/* Landing page overlay effect */
+.overlay {
+  position: absolute;
+  top: 0%;
+  height: 100%;
+  width: 100%;
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  background: #151515;
+  -webkit-animation: scale 6s ease-in-out 0.5s forwards;
+  animation: scale 6s ease-in-out 0.5s forwards;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: white;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.overlay-text {
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  color: white;
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -webkit-animation: text-transform 2.5s linear 2s forwards;
+  animation: text-transform 2.5s linear 2s forwards;
+}
+
+/*  overlay effect animation  */
+@-webkit-keyframes text-transform {
+  0% {
+    opacity: 0;
+  }
+  40%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes text-transform {
+  0% {
+    opacity: 0;
+  }
+  40%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes scale {
+  0% {
+    top: 0;
+  }
+  30%,
+  70% {
+    top: 0%;
+  }
+  100% {
+    top: 200%;
+  }
+}
+
+@keyframes scale {
+  0% {
+    top: 0;
+  }
+  30%,
+  70% {
+    top: 0%;
+  }
+  100% {
+    top: 200%;
+  }
+}
+
+/* Landing page header and navbar */
+.hero-header {
+  -webkit-transform-origin: bottom;
+  transform-origin: bottom;
+  min-height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  z-index: 2;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+/*NavBar*/
+.navbar {
+  width: 95%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+#logo,
+.homepage {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 10rem;
+  flex: 1 1 10rem;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: white;
+}
+
+.navlinks {
+  -webkit-box-flex: 0.6;
+  -ms-flex: 0.6 0.6 20rem;
+  flex: 0.6 0.6 20rem;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.navlinks li {
+  color: white;
+  margin: 0rem 2rem;
+}
+
+.homepage {
+  text-align: right;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 10rem;
+  flex: 1 1 10rem;
+}
+
+.homepage-button {
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  background: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.homepage-button a {
+  color: black;
+}
+
+/*Landing page main content*/
+.hero {
+  width: 95%;
+  margin: auto;
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.hero .service-logo p,
+.hero div h1,
+.hero div h3 {
+  color: white;
+}
+
+.hero .service-logo,
+.hero-text,
+.hero-nav {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.hero-text {
+  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: translateY(-25%);
+  transform: translateY(-25%);
+  padding: 1rem;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.hero-text h1 {
+  opacity: 0;
+  font-weight: 200;
+  letter-spacing: 1px;
+  -webkit-animation: main-text-slide 0.5s linear 6s forwards;
+  animation: main-text-slide 0.5s linear 6s forwards;
+}
+
+.hero-text h3 {
+  opacity: 0;
+  font-weight: 200;
+
+  -webkit-animation: discription-text-slide-in 1s ease-in-out 6.2s forwards;
+  animation: discription-text-slide-in 1s ease-in-out 6.2s forwards;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  margin-top: 1rem;
+  font-style: italic;
+  color: indianred;
+}
+/* .hero-text::before {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: white;
+    -webkit-animation: slide-in-effect 1s ease-in-out 6s forwards;
+    animation: slide-in-effect 1s ease-in-out 6s forwards;
+  } */
+
+.hero-navlinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.hero-navlinks li {
+  padding: 0.5rem;
+}
+
+.service-logo p {
+  -webkit-transform: rotate(90deg) translate(-25%);
+  transform: rotate(90deg) translate(-25%);
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+}
+
+.hero-header {
+  -webkit-transform: translateY(-200%);
+  transform: translateY(-200%);
+  -webkit-animation: top-text-slide-in 1s ease-in-out 7s forwards;
+  animation: top-text-slide-in 1s ease-in-out 7s forwards;
+}
+
+.service-logo {
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-animation: text-slide-in 1s ease-in-out 7s forwards;
+  animation: text-slide-in 1s ease-in-out 7s forwards;
+}
+
+.hero-nav {
+  -webkit-transform: translateX(50%);
+  transform: translateX(50%);
+  -webkit-animation: text-slide-in 1s ease-in-out 7s forwards;
+  animation: text-slide-in 1s ease-in-out 7s forwards;
+}
+
+/* Icons */
+.fa {
+  width: 10px;
+  height: 10px;
+  color: white;
+}
+
+/* Landing page animation */
+@-webkit-keyframes slide-in-effect {
+  to {
+    left: 200%;
+  }
+}
+@keyframes slide-in-effect {
+  to {
+    left: 200%;
+  }
+}
+
+@-webkit-keyframes slide-in {
+  to {
+    width: 49%;
+  }
+}
+
+@keyframes slide-in {
+  to {
+    width: 49%;
+  }
+}
+
+@-webkit-keyframes scale-image {
+  to {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes scale-image {
+  to {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+
+@-webkit-keyframes text-slide-in {
+  to {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@keyframes text-slide-in {
+  to {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes top-text-slide-in {
+  to {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+
+@keyframes top-text-slide-in {
+  to {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes main-text-slide {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes main-text-slide {
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes discription-text-slide-in {
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+
+@keyframes discription-text-slide-in {
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+
+/* <------page 1 responsive-----> */
+@media screen and (max-width: 948px) {
+  .background-image {
+    background: url("https://cdn.pixabay.com/photo/2016/03/23/15/00/ice-cream-cone-1274894_960_720.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  #logo {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 10rem;
+    flex: 1 1 10rem;
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+  }
+  .navlinks {
+    padding-top: 1rem;
+    -webkit-box-ordinal-group: 4;
+    -ms-flex-order: 3;
+    order: 3;
+  }
+  .navlinks li {
+    margin: 0 1rem;
+  }
+  .navlinks,
+  .homepage {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 5rem;
+    flex: 1 1 5rem;
+  }
+  .homepage {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+    padding-top: 0.5rem;
+  }
+  .hero {
+    display: block;
+    position: relative;
+  }
+  .hero .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-transform: translateY(calc(-50% - 10vh)) translateX(-50%);
+    transform: translateY(calc(-50% - 10vh)) translateX(-50%);
+  }
+  .hero .hero-text h1,
+  .hero .hero-text h3 {
+    width: 100%;
+    padding: 0 2rem;
+  }
+  .hero .hero-nav {
+    position: absolute;
+    -webkit-transform: translateX(-250%);
+    transform: translateX(-250%);
+    left: 0;
+    bottom: 20%;
+  }
+  .service-logo {
+    display: none;
+  }
+}
+
+.join-us > div {
+  flex: 1;
+}
+
+.join-button {
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-25%);
+}
+
+.join-button button {
+  padding: 1rem 3rem;
+  border: 1px solid grey;
+  outline: none;
+  color: rgb(158, 126, 126);
+  font-size: 1.5rem;
+  background: rgb(126, 197, 126);
+}
+
+@import url("https://fonts.googleapis.com/css?family=Mukta:700");
+* {
+  box-sizing: border-box;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.join-button button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+button.learn-more {
+  width: 12rem;
+  height: auto;
+}
+button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #282936;
+  border-radius: 1.625rem;
+}
+button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+}
+button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #282936;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+button:hover .circle {
+  width: 100%;
+}
+button:hover .circle .icon.arrow {
+  background: #fff;
+  transform: translate(1rem, 0);
+}
+button:hover .button-text {
+  color: #fff;
+}
+
+.second-page {
+  display: flex;
+  height: 100vh;
+}
+.second-page > div {
+  height: 100%;
+}
+
+.second-page > div:nth-of-type(1) {
+  width: 49%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background: url("https://image.freepik.com/free-vector/white-abstract-background-design_23-2148825582.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.second-page > div:nth-of-type(2) {
+  width: 51%;
+  background-color: #151515;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.second-page div img {
+  max-width: 20rem;
+  height: 20rem;
+}
+
+.second-page > div:nth-of-type(1) div {
+  color: black;
+}
+
+.about-heading {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.about-content {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.scroll {
+  scroll-snap-align: start;
+}
+
+.third-page {
+  height: 100vh;
+  background-color: #151515;
+  display: flex;
+}
+
+.third-page-left {
+  order: 2;
+  width: 51%;
+  height: 100%;
+  background: url("https://image.freepik.com/free-vector/white-abstract-background-design_23-2148825582.jpg");
+}
+.third-left-image {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.third-page-right {
+  width: 49%;
+  height: 100%;
+
+  order: 1;
+}
+
+#object {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.third-right-heading {
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.third-right-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 80%;
+}
+.join-button1 button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+button.learn-more1 {
+  width: 12rem;
+  height: auto;
+}
+button.learn-more1 .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #b4b4b4;
+  border-radius: 1.625rem;
+}
+button.learn-more1 .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+button.learn-more1 .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+button.learn-more1 .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+}
+button.learn-more1 .button-text1 {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #ebecf3;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+button:hover .circle {
+  width: 100%;
+}
+button:hover .circle1 .icon.arrow {
+  background: #fff;
+  transform: translate(1rem, 0);
+}
+button:hover .button-text1 {
+  color: #fff;
+}
